@@ -1,0 +1,4 @@
+interface:
+  display_name: "T3 Orchestrator"
+  short_description: "Orchestrate T3 sessions and stacked pull requests"
+  default_prompt: "Use $t3-orchestrator to plan and coordinate this T3 session with delegated tasks and stacked pull requests."
