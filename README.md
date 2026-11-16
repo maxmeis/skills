@@ -1,10 +1,14 @@
 # Max’s Agent Skills
 
+[![skills.sh](https://skills.sh/b/maxmeis/skills)](https://www.skills.sh/maxmeis/skills/t3-orchestrator)
+
 Small, reusable skills for Claude Code, Codex, and other coding agents. The collection currently includes:
 
 | Skill | What it does |
 | --- | --- |
 | [T3 Orchestrator](skills/t3-orchestrator/SKILL.md) | Coordinates T3 sessions, delegated engineering work, stacked pull requests, and resumable handoffs. |
+
+Browse [T3 Orchestrator on skills.sh](https://www.skills.sh/maxmeis/skills/t3-orchestrator).
 
 ## Install
 
