@@ -61,3 +61,31 @@ To see skills available from this repository, run `pnpm dlx skills add . --list`
 ## Add a skill
 
 Create each skill under `skills/<skill-name>/SKILL.md`. Include `name` and `description` in its YAML frontmatter, then add any supporting files inside that skill's folder. The [skills.sh creation guide](https://github.com/vercel-labs/skills/blob/main/docs/creating-skills.md) describes repository discovery and the required format.
+
+## CI and releases
+
+Pull requests and pushes to `main` run CI. It validates skill frontmatter, metadata, and local references; runs the unit tests; then smoke-installs all skills into temporary Claude Code and Codex directories with telemetry disabled.
+
+Run the same checks locally:
+
+```sh
+python3 -m pip install -r requirements-ci.txt
+python3 scripts/validate_skills.py
+python3 -m unittest discover -s tests -v
+python3 scripts/smoke_install.py
+```
+
+The release workflow runs for `vX.Y.Z` tags. It reuses CI, releases only tag commits reachable from `main`, and packages the README and skills into a ZIP with `SHA256SUMS`. It uses GitHub's built-in `GITHUB_TOKEN`; no extra secret is needed. The tag is an optional stable snapshot: the main branch remains the source used by the skills CLI and skills.sh, with no separate registry publishing step.
+
+To release a commit already pushed to `main`, choose a new version tag:
+
+```sh
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+To install that tagged snapshot:
+
+```sh
+pnpm dlx skills add maxmeis/skills@v0.1.0 --skill t3-orchestrator -g -a claude-code codex
+```
