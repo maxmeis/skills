@@ -7,6 +7,7 @@ Small, reusable skills for Claude Code, Codex, and other coding agents. The coll
 | Skill | What it does |
 | --- | --- |
 | [T3 Orchestrator](skills/t3-orchestrator/SKILL.md) | Coordinates T3 sessions, delegated engineering work, stacked pull requests, and resumable handoffs. |
+| [Brew a Mac App](skills/brew-a-mac-app/SKILL.md) | Packages macOS apps as Homebrew casks and guides verified, automated Stable/Canary releases. |
 
 Browse [T3 Orchestrator on skills.sh](https://www.skills.sh/maxmeis/skills/t3-orchestrator).
 
@@ -44,6 +45,12 @@ Or install for both at once:
 pnpm dlx skills add maxmeis/skills --skill t3-orchestrator -g -a claude-code codex
 ```
 
+For the Homebrew app-release skill, install:
+
+```sh
+pnpm dlx skills add maxmeis/skills --skill brew-a-mac-app -g -a claude-code codex
+```
+
 Skills.sh discovers skills from GitHub repositories; users install with `skills add`, and aggregate install telemetry can make skills appear in its directory automatically. There is no separate submission step, and directory listing may take time. See the [skills.sh FAQ](https://www.skills.sh/docs/faq).
 
 ## Use
@@ -54,7 +61,9 @@ In Claude Code, invoke the skill with `/t3-orchestrator`. In Codex, invoke it wi
 Coordinate this task with delegated agents and stacked PRs.
 ```
 
-T3 orchestration tools must be connected in the current session. Start a fresh agent session if the newly installed skill is not yet available.
+For Brew a Mac App, use `/brew-a-mac-app` in Claude Code or `$brew-a-mac-app` in Codex. For example: “Prepare verified Homebrew packaging and release automation for this macOS app.” Its short entrypoint links to focused references for casks/channels, signing/releases, CI publication, and verification/recovery.
+
+T3 Orchestrator requires connected T3 orchestration tools; Brew a Mac App does not. Start a fresh agent session if the newly installed skill is not yet available.
 
 To see skills available from this repository, run `pnpm dlx skills add . --list`. Update installed skills with `pnpm dlx skills update -g`.
 
