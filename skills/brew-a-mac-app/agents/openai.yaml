@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brew a Mac App"
+  short_description: "Package and release macOS apps through Homebrew"
+  default_prompt: "Use $brew-a-mac-app to prepare verified Homebrew packaging and release automation for this macOS app, preserving the repository's existing policy."
